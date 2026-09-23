@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Címlap</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px 100px 20px;
+        }
+
+        h1 {
+            font-size: clamp(20px, 5vw, 32px);
+            margin-bottom: 40px;
+        }
+
+        /* Asztali nézet */
+        table {
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: white;
+        }
+
+        td {
+            border: 2px solid black;
+            padding: 12px 20px;
+            font-size: clamp(14px, 3.5vw, 18px);
+            text-align: center;
+        }
+
+        .egyetem {
+            font-size: clamp(14px, 4vw, 18px);
+        }
+
+        .egyetem b {
+            font-size: clamp(16px, 4.5vw, 22px);
+        }
+
+        /* MOBIL NÉZET */
+        @media (max-width: 600px) {
+
+            table {
+                display: flex;
+                flex-direction: column;
+                align-items: center;   /* <<< EZ KÖZÉPRE TESZI */
+                background: transparent;
+                width: 100%;
+            }
+
+            tr {
+                display: flex;
+                flex-direction: column;
+                width: 320px;          /* fix kártya szélesség */
+                margin-bottom: 20px;
+                border: 2px solid black;
+                background: white;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #ccc;
+                padding: 12px;
+                text-align: center;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Alsó navigáció */
+        .bottom-center {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .bottom-center a {
+            text-decoration: none;
+            color: black;
+            font-size: clamp(24px, 6vw, 30px);
+        }
+
+        .bottom-center span {
+            display: block;
+            font-size: clamp(12px, 3.5vw, 14px);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <h1>3D modellezés és játékfejlesztés</h1>
+
+    <table>
+        <tr>
+            <td>RADVÁNSZKY ÁDÁM JÁNOS</td>
+            <td>FUEBB7</td>
+            <td>fuebb7@student.unithe.hu</td>
+        </tr>
+        <tr>
+            <td>OROSZ KRISTÓF</td>
+            <td>EYZWG9</td>
+            <td>eyzwg9@student.unithe.hu</td>
+        </tr>
+    </table>
+<br><br>
+    <div class="egyetem">
+        <b>TOKAJ - HEGYALJA EGYETEM</b><br>
+        Sárospatak<br>
+        2026. szeptember 24.
+    </div>
+
+</div>
+
+<div class="bottom-center">
+    <a href="jatekfejlesztes.html">📋</a>
+    <span><b>DOKUMENTUMOK</b></span>
+</div>
+
+</body>
+</html>
