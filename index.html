@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Címlap</title>
 
     <style>
@@ -13,10 +16,18 @@
 
         body {
             margin: 0;
+
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #eef2f7, #f8fafc);
+
+            background: linear-gradient(
+                135deg,
+                #eef2f7,
+                #f8fafc
+            );
+
             color: #1f2937;
         }
+
 
         /* =========================
            OLDAL
@@ -44,6 +55,7 @@
             background: rgba(255, 255, 255, 0.96);
 
             border-radius: 22px;
+
             border: 1px solid rgba(0, 0, 0, 0.05);
 
             box-shadow:
@@ -63,11 +75,16 @@
             margin: 0 0 40px;
 
             font-size: clamp(24px, 5vw, 36px);
+
             font-weight: 700;
+
             letter-spacing: -0.5px;
 
             color: #172033;
         }
+
+
+        /* Kék vonal a cím alatt */
 
         h1::after {
             content: "";
@@ -109,6 +126,7 @@
                 0 5px 18px rgba(0, 0, 0, 0.06);
         }
 
+
         td {
             padding: 17px 20px;
 
@@ -116,12 +134,22 @@
 
             text-align: center;
 
-            border-bottom: 1px solid #e5e7eb;
+            /* NINCS függőleges vonal */
+            border: none;
         }
 
-        tr:last-child td {
-            border-bottom: none;
+
+        /* =========================
+           VÍZSZINTES ELVÁLASZTÓ
+           A KÉT HALLGATÓ KÖZÖTT
+           ========================= */
+
+        tr:first-child td {
+            border-bottom: 1px solid #dfe5ec;
         }
+
+
+        /* Sor hover */
 
         tr {
             transition: background 0.2s ease;
@@ -131,19 +159,27 @@
             background: #f3f7fb;
         }
 
-        /* Név */
+
+        /* NÉV */
+
         td:first-child {
             font-weight: 600;
+
             color: #172033;
         }
 
-        /* Neptun kód */
+
+        /* NEPTUN */
+
         td:nth-child(2) {
             color: #315b8a;
+
             font-weight: 600;
         }
 
-        /* Email */
+
+        /* EMAIL */
+
         td:nth-child(3) {
             color: #5b6472;
         }
@@ -157,6 +193,7 @@
             margin-bottom: 25px;
 
             font-size: clamp(17px, 4vw, 22px);
+
             font-weight: 700;
 
             color: #172033;
@@ -173,7 +210,9 @@
             width: 100%;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
             padding-top: 20px;
@@ -188,6 +227,7 @@
 
         .location-date {
             display: flex;
+
             align-items: center;
 
             gap: 10px;
@@ -199,10 +239,13 @@
             white-space: nowrap;
         }
 
+
         .location {
             font-weight: 600;
+
             color: #172033;
         }
+
 
         .separator {
             color: #b0b7c3;
@@ -215,6 +258,7 @@
 
         .documents {
             display: flex;
+
             align-items: center;
 
             gap: 8px;
@@ -224,6 +268,7 @@
             background: #f3f7fb;
 
             border: 1px solid #dce5ef;
+
             border-radius: 12px;
 
             text-decoration: none;
@@ -231,6 +276,7 @@
             color: #315b8a;
 
             font-size: 13px;
+
             font-weight: 700;
 
             letter-spacing: 0.4px;
@@ -241,9 +287,13 @@
                 box-shadow 0.2s ease;
         }
 
+
         .documents .icon {
             font-size: 19px;
         }
+
+
+        /* Dokumentum gomb hover */
 
         .documents:hover {
             background: #e7f0f9;
@@ -267,18 +317,23 @@
                 padding: 20px 15px;
             }
 
+
             .content {
                 padding: 35px 18px 22px;
 
                 border-radius: 18px;
             }
 
+
             h1 {
                 margin-bottom: 30px;
             }
 
 
-            /* Hallgatók külön kártyák */
+            /* =====================
+               HALLGATÓ KÁRTYÁK
+               ===================== */
+
             table {
                 display: block;
 
@@ -295,14 +350,17 @@
                 overflow: visible;
             }
 
+
             tbody {
                 display: block;
 
                 width: 100%;
             }
 
+
             tr {
                 display: flex;
+
                 flex-direction: column;
 
                 width: 100%;
@@ -312,6 +370,7 @@
                 background: white;
 
                 border: 1px solid #dfe5ec;
+
                 border-radius: 14px;
 
                 overflow: hidden;
@@ -320,41 +379,65 @@
                     0 5px 15px rgba(0, 0, 0, 0.06);
             }
 
+
             td {
                 width: 100%;
-
-                border: none;
-
-                border-bottom: 1px solid #e5e7eb;
 
                 padding: 13px;
 
                 text-align: center;
+
+                border-bottom:
+                    1px solid #e5e7eb;
             }
 
-            td:last-child {
-                border-bottom: none;
 
+            /* Mobilon felülírjuk
+               az asztali sorvonalat */
+
+            tr:first-child td {
+                border-bottom:
+                    1px solid #e5e7eb;
+            }
+
+
+            /* Utolsó adat alatt
+               ne legyen vonal */
+
+            tr td:last-child {
+                border-bottom: none;
+            }
+
+
+            td:last-child {
                 font-size: 13px;
             }
 
 
-            /* Egyetem */
+            /* =====================
+               EGYETEM
+               ===================== */
+
             .egyetem {
                 margin-bottom: 20px;
             }
 
 
-            /* Alsó sor mobilon */
+            /* =====================
+               ALSÓ SOR
+               ===================== */
+
             .bottom-row {
                 gap: 10px;
             }
+
 
             .location-date {
                 gap: 5px;
 
                 font-size: 11px;
             }
+
 
             .documents {
                 padding: 9px 11px;
@@ -363,6 +446,7 @@
 
                 font-size: 10px;
             }
+
 
             .documents .icon {
                 font-size: 16px;
@@ -384,9 +468,11 @@
                 gap: 15px;
             }
 
+
             .location-date {
                 justify-content: center;
             }
+
 
             .documents {
                 justify-content: center;
@@ -394,75 +480,143 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
 <div class="page">
+
 
     <div class="content">
 
-        <!-- CÍM -->
-        <h1>3D MODELLEZÉS ÉS JÁTÉKFEJLESZTÉS</h1>
+
+        <!-- =====================
+             CÍM
+             ===================== -->
+
+        <h1>
+            3D MODELLEZÉS ÉS JÁTÉKFEJLESZTÉS
+        </h1>
 
 
-        <!-- HALLGATÓK -->
+
+        <!-- =====================
+             HALLGATÓK
+             ===================== -->
+
         <table>
 
             <tr>
-                <td>RADVÁNSZKY ÁDÁM JÁNOS</td>
-                <td>FUEBB7</td>
-                <td>fuebb7@student.unithe.hu</td>
+
+                <td>
+                    RADVÁNSZKY ÁDÁM JÁNOS
+                </td>
+
+                <td>
+                    FUEBB7
+                </td>
+
+                <td>
+                    fuebb7@student.unithe.hu
+                </td>
+
             </tr>
 
+
             <tr>
-                <td>OROSZ KRISTÓF</td>
-                <td>EYZWG9</td>
-                <td>eyzwg9@student.unithe.hu</td>
+
+                <td>
+                    OROSZ KRISTÓF
+                </td>
+
+                <td>
+                    EYZWG9
+                </td>
+
+                <td>
+                    eyzwg9@student.unithe.hu
+                </td>
+
             </tr>
 
         </table>
 
 
-        <!-- EGYETEM -->
+
+        <!-- =====================
+             EGYETEM
+             ===================== -->
+
         <div class="egyetem">
+
             TOKAJ-HEGYALJA EGYETEM
+
         </div>
 
 
-        <!-- ALSÓ SOR -->
+
+        <!-- =====================
+             ALSÓ SOR
+             ===================== -->
+
         <div class="bottom-row">
 
-            <!-- BAL OLDAL -->
+
+            <!-- BAL OLDAL:
+                 HELYSZÍN + DÁTUM -->
+
             <div class="location-date">
 
+
                 <span class="location">
+
                     Sárospatak, 2026. szeptember 24.
+
                 </span>
+
 
             </div>
 
 
-            <!-- JOBB OLDAL -->
-            <a href="jatekfejlesztes.html" class="documents">
+
+            <!-- JOBB OLDAL:
+                 DOKUMENTUMOK -->
+
+            <a
+                href="jatekfejlesztes.html"
+                class="documents"
+            >
+
 
                 <span class="icon">
+
                     📋
+
                 </span>
 
+
                 <span>
+
                     DOKUMENTUMOK
+
                 </span>
+
 
             </a>
 
+
         </div>
+
 
     </div>
 
+
 </div>
 
-</body>
-</html>
 
+</body>
+
+</html>
