@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -5,7 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tartalomjegyzék</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -55,7 +61,15 @@
       align-items: center;
       background-color: #cccccc;
       padding: 0.5rem;
-      margin: 0 1rem;
+      margin: 0;
+      width: 100%;
+      height: 100px;
+      gap: 10px;
+    }
+
+    .header-container > div {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .toggle-button {
@@ -63,13 +77,22 @@
       border: none;
       cursor: pointer;
       font-size: 1.5rem;
+      flex-shrink: 0;
+      color: black;
     }
 
     .extra-content {
       display: none;
       background-color: #e6e6e6;
       padding: 1rem;
-      margin: 0 1rem;
+      margin: 0;
+      width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .extra-content p {
+      margin: 0;
+      font-size: 1rem;
     }
 
     .subchapters {
@@ -88,223 +111,199 @@
 
     .frissites {
       display: block;
-      font-size: 0.5em;
+      font-size: 0.75rem;
       font-style: italic;
       color: black;
       margin-top: 3px;
     }
-
-    @media (max-width: 1024px) {
-      h1 {
-        font-size: 5vw;
-      }
-
-      .link {
-        font-size: 5vw;
-      }
-
-      p {
-        font-size: 4vw;
-      }
-
-      .toggle-button {
-        font-size: 5vw;
-      }
-
-      .subchapters {
-        font-size: 4vw;
-      }
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 6vw;
-      }
-
-      .link {
-        font-size: 6vw;
-      }
-
-      p {
-        font-size: 5vw;
-      }
-
-      .toggle-button {
-        font-size: 6vw;
-      }
-
-      .subchapters {
-        font-size: 5vw;
-      }
-    }
-    
-@media (max-width: 768px) {
-  .link {
-    margin: 1rem;
-  }
-
-  .header-container {
-    margin: 0;
-    min-height: 80px;
-    box-sizing: border-box;
-    width: 100%;
-  }
-}
-
   </style>
 </head>
 
 <body>
 
-  <body>
-    <h1>Tartalomjegyzék</h1>
+  <h1>Tartalomjegyzék</h1>
 
+  <h3><u>Forrásfájlok</u></h3>
 
-    <h3><u>Forrásfájlok</u></h3>
-    <div class="link">
-      <ul>
-        <li>
-          <div class="header-container">
-            <a href="https://drive.google.com/drive/folders/1TWAYi4bWEs8ZLXcACmpvLCAtgkryc855?usp=sharing">
-              <b>Forrásfájlok</b>
+  <div class="link">
+    <ul>
+      <li>
+        <div class="header-container">
+          <a href="https://drive.google.com/drive/folders/1TWAYi4bWEs8ZLXcACmpvLCAtgkryc855?usp=sharing">
+            <b>Forrásfájlok</b>
+          </a>
+
+          <button class="toggle-button"
+            onclick="toggleContent('extraContentGithub', this)"
+            aria-label="Alfejezetek megnyitása/bezárása">
+            &#9660;
+          </button>
+        </div>
+
+        <div id="extraContentGithub" class="extra-content">
+          <p style="text-align: justify;">
+            A főcímre kattintva megtekinthetőek a féléves beadandónk forrásfájljai.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <h3><u>Alapdokumentumok</u></h3>
+
+  <div class="link">
+    <ul>
+      <li>
+        <div class="header-container">
+          <div>
+            <a href="#">
+              <b>Munkanapló</b>
             </a>
-            <button class="toggle-button" onclick="toggleContent('extraContentGithub', this)"
-              aria-label="Alfejezetek megnyitása/bezárása">
-              &#9660;
-            </button>
+
+            <span class="frissites">
+              Utoljára frissítve: 2026. december 06.
+            </span>
           </div>
 
-          <div id="extraContentGithub" class="extra-content">
-            <p style="text-align: justify;">
-              A főcímre kattintva megtekinthetőek a féléves beadandónk forrásfájljai.
+          <button class="toggle-button"
+            onclick="toggleContent('extraContentMunkanaplo', this)"
+            aria-label="Alfejezetek megnyitása/bezárása">
+            &#9660;
+          </button>
+        </div>
 
-          </div>
-        </li>
-      </ul>
-    </div>
+        <div id="extraContentMunkanaplo" class="extra-content">
+          <p style="text-align: justify;">
+            A dokumentum tartalmazza a webalkalmazásunk során végzett napi tevékenységeket,
+            és a fejlesztési folyamat fontosabb mérföldköveit.
+            <br><br>
+            <span style="color: red;">
+              <i>A dokumentum a főcímre kattintva tekinthető meg!</i>
+            </span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-    <h3><u>Alapdokumentumok</u></h3>
+  <h3><u>Alkalmazásfejlesztés dokumentációi</u></h3>
 
-    <div class="link">
-      <ul>
-        <li>
-          <div class="header-container">
-            <div>
-              <a href="#"><b>Munkanapló</b></a>
-              <span class="frissites">Utoljára frissítve: 2026. november 29. </span>
-            </div>
-            <button class="toggle-button" onclick="toggleContent('extraContentMunkanaplo', this)"
-              aria-label="Alfejezetek megnyitása/bezárása">
-              &#9660;
-            </button>
-          </div>
+  <div class="link">
+    <ul>
+      <li>
+        <div class="header-container">
+          <div>
+            <a href="https://drive.google.com/file/d/151CwrvlhxGUsUvfBCBlwqH_g7t-mQm3o/view?usp=sharing">
+              <b>Projekt terv</b>
+            </a>
 
-          <div id="extraContentMunkanaplo" class="extra-content">
-            <p style="text-align: justify;">
-              A dokumentum tartalmazza a webalkalmazásunk során végzett napi tevékenységeket,
-              és a fejlesztési folyamat fontosabb mérföldköveit. <br><br> <span style="color: red;"><i>A dokumentum a
-                  főcímre kattintva tekinthető meg!</i></span>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-      <h3><u>Alkalmazásfejlesztés dokumentációi</u></h3>  
-
-    <div class="link">
-      <ul>
-        <li>
-          <div class="header-container">
-            <div>
-              <a href="https://drive.google.com/file/d/151CwrvlhxGUsUvfBCBlwqH_g7t-mQm3o/view?usp=sharing"><b>Projekt terv</b></a>
-              <span class="frissites">Utoljára frissítve: 2026. szeptember 24.</span>
-            </div>
-            <button class="toggle-button" onclick="toggleContent('extraContentterv', this)"
-              aria-label="Alfejezetek megnyitása/bezárása">
-              &#9660;
-            </button>
-          </div>
-        
-          <div id="extraContentterv" class="extra-content">
-            <p style="text-align: justify;">
-              A dokumentum tartalmazza a webalkalmazásunk projekttervét.<span
-                style="color: red;"><br><br><i>A dokumentum a főcímre kattintva tekinthető
-                  meg!</i></span>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="link">
-      <ul>
-        <li>
-          <div class="header-container">
-            <div>
-              <a href="#">
-                <b>Jegyzőkönyv</b>
-              </a>
-              <span class="frissites">Utoljára frissítve: 2026. november 29.</span>
-            </div>
-            <button class="toggle-button" onclick="toggleContent('extraContentProjekt', this)"
-              aria-label="Alfejezetek megnyitása/bezárása">
-              &#9660;
-            </button>
+            <span class="frissites">
+              Utoljára frissítve: 2026. szeptember 24.
+            </span>
           </div>
 
-          <div id="extraContentProjekt" class="extra-content">
-            <p style="text-align: justify;">
-              A dokumentum tartalmazza a projektünk fontosabb kódrészleteit.<span
-                style="color: red;"><br><br><i>A dokumentum a főcímre kattintva tekinthető
-                  meg!</i></span>
-            </p>
+          <button class="toggle-button"
+            onclick="toggleContent('extraContentterv', this)"
+            aria-label="Alfejezetek megnyitása/bezárása">
+            &#9660;
+          </button>
+        </div>
+
+        <div id="extraContentterv" class="extra-content">
+          <p style="text-align: justify;">
+            A dokumentum tartalmazza a webalkalmazásunk projekttervét.
+            <br><br>
+            <span style="color: red;">
+              <i>A dokumentum a főcímre kattintva tekinthető meg!</i>
+            </span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="link">
+    <ul>
+      <li>
+        <div class="header-container">
+          <div>
+            <a href="#">
+              <b>Jegyzőkönyv</b>
+            </a>
+
+            <span class="frissites">
+              Utoljára frissítve: 2026. december 06.
+            </span>
           </div>
-        </li>
-      </ul>
-    </div>
 
+          <button class="toggle-button"
+            onclick="toggleContent('extraContentProjekt', this)"
+            aria-label="Alfejezetek megnyitása/bezárása">
+            &#9660;
+          </button>
+        </div>
 
-    <div class="link">
-      <ul>
-        <li>
-          <div class="header-container">
-            <div>
-              <a href="#"><b>Felhasználói kézikönyv</b></a>
-              <span class="frissites">Utoljára frissítve: 2026. november 29.</span>
-            </div>
-            <button class="toggle-button" onclick="toggleContent('extraContentkezikonyv', this)"
-              aria-label="Alfejezetek megnyitása/bezárása">
-              &#9660;
-            </button>
+        <div id="extraContentProjekt" class="extra-content">
+          <p style="text-align: justify;">
+            A dokumentum tartalmazza a projektünk fontosabb kódrészleteit.
+            <br><br>
+            <span style="color: red;">
+              <i>A dokumentum a főcímre kattintva tekinthető meg!</i>
+            </span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="link">
+    <ul>
+      <li>
+        <div class="header-container">
+          <div>
+            <a href="#">
+              <b>Felhasználói kézikönyv</b>
+            </a>
+
+            <span class="frissites">
+              Utoljára frissítve: 2026. december 06.
+            </span>
           </div>
 
-          <div id="extraContentkezikonyv" class="extra-content">
-            <p style="text-align: justify;">
-              A dokumentum tartalmazza a webalkalmazásunk felhasználói kézikönyvét.<span
-                style="color: red;"><br><br><i>A dokumentum a főcímre kattintva tekinthető
-                  meg!</i></span>
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
+          <button class="toggle-button"
+            onclick="toggleContent('extraContentkezikonyv', this)"
+            aria-label="Alfejezetek megnyitása/bezárása">
+            &#9660;
+          </button>
+        </div>
 
+        <div id="extraContentkezikonyv" class="extra-content">
+          <p style="text-align: justify;">
+            A dokumentum tartalmazza a webalkalmazásunk felhasználói kézikönyvét.
+            <br><br>
+            <span style="color: red;">
+              <i>A dokumentum a főcímre kattintva tekinthető meg!</i>
+            </span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-    <script>
-      function toggleContent(id, button) {
-        var extra = document.getElementById(id);
+  <script>
+    function toggleContent(id, button) {
+      var extra = document.getElementById(id);
 
-        if (extra.style.display === "none" || extra.style.display === "") {
-          extra.style.display = "block";
-          button.innerHTML = "&#9650;";
-        } else {
-          extra.style.display = "none";
-          button.innerHTML = "&#9660;";
-        }
+      if (extra.style.display === "none" || extra.style.display === "") {
+        extra.style.display = "block";
+        button.innerHTML = "&#9650;";
+      } else {
+        extra.style.display = "none";
+        button.innerHTML = "&#9660;";
       }
-    </script>
+    }
+  </script>
 
-  </body>
+</body>
 
 </html>
